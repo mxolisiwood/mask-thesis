@@ -62,6 +62,7 @@ history = model.fit(train_generator,
 
 
 
+
 import cv2
 import numpy as np
 from keras.models import load_model
@@ -120,5 +121,4 @@ webcam.release()
 # Close all started windows
 cv2.destroyAllWindows()
 # print("I work you stupid")
-
 
