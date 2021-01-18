@@ -2,9 +2,13 @@ import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from fastai.vision import load_learner
 
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+
 def start(update, context):
     update.message.reply_text(
-        "Bot by @kevindegila on Twitter \n\n "
+
         "EN : Please send me a photo of you and I will tell you if you're wearing a mask 😏 \n"
 
     )
@@ -13,20 +17,11 @@ def start(update, context):
 def help_command(update, context):
     update.message.reply_text('My only purpose is to tell you if you are wearing a mask. Send a photo')
 
-def main():
-    updater = Updater(token="1499112744:AAHgq07V8Z8meug39XacJlPryLZbgOaLEoc", use_context=True)
-    dp = updater.dispatcher
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", help_command))
-    updater.start_polling()
-    updater.idle()
-if __name__ == '__main__':
-    main()
 
 
 def load_model():
     global model
-    model = load_learner('2attempt.py')
+    model = load_learner('2attempt.pkl')
     print('Model loaded')
 
 
