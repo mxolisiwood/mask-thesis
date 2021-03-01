@@ -63,13 +63,13 @@ class DB_VAE(tf.keras.Model):
         # Encode input to a prediction and latent space
         y_logit, z_mean, z_logsigma = self.encode(x)
 
-        # TODO: reparameterization
+        #  reparameterization
         z = self.reparameterize(z_mean, z_logsigma)
-        # z = # TODO
+        
 
-        # TODO: reconstruction
+        # reconstruction
         recon = self.decode(z)
-        # recon = # TODO
+        
         return y_logit, z_mean, z_logsigma, recon
 
     # Predict face or not face logit for given input x
@@ -102,9 +102,9 @@ def get_latent_mu(images, dbvae, batch_size=1024):
 def get_training_sample_probabilities(images, dbvae, bins=10, smoothing_fac=0.001):
     print("Recomputing the sampling probabilities")
 
-    # TODO: run the input batch and get the latent variable means
+    # run the input batch and get the latent variable means
     mu = get_latent_mu(images, dbvae)
-    # mu = get_latent_mu('''TODO''') # TODO
+   
 
     # sampling probabilities for the images
     training_sample_p = np.zeros(mu.shape[0])
@@ -119,11 +119,11 @@ def get_training_sample_probabilities(images, dbvae, bins=10, smoothing_fac=0.00
         bin_edges[0] = -float('inf')
         bin_edges[-1] = float('inf')
 
-        # TODO: call the digitize function to find which bins in the latent distribution
+        #  call the digitize function to find which bins in the latent distribution
         #    every data sample falls in to
         # https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.digitize.html
         bin_idx = np.digitize(latent_distribution, bin_edges)
-        # bin_idx = np.digitize('''TODO''', '''TODO''') # TODO
+   
 
         # smooth the density function
         hist_smoothed_density = hist_density + smoothing_fac
@@ -132,14 +132,14 @@ def get_training_sample_probabilities(images, dbvae, bins=10, smoothing_fac=0.00
         # invert the density function
         p = 1.0 / (hist_smoothed_density[bin_idx - 1])
 
-        # TODO: normalize all probabilities
+        # normalize all probabilities
         p = p / np.sum(p)
-        # p = # TODO
+        
 
-        # TODO: update sampling probabilities by considering whether the newly
+        #  update sampling probabilities by considering whether the newly
         #     computed p is greater than the existing sampling probabilities.
         training_sample_p = np.maximum(p, training_sample_p)
-        # training_sample_p = # TODO
+       
 
     # final normalization
     training_sample_p /= np.sum(training_sample_p)
@@ -171,14 +171,14 @@ def debiasing_train_step(x, y):
         # Feed input x into dbvae. Note that this is using the DB_VAE call function!
         y_logit, z_mean, z_logsigma, x_recon = dbvae(x)
 
-        '''TODO: call the DB_VAE loss function to compute the loss'''
+        ''' call the DB_VAE loss function to compute the loss'''
         loss, class_loss = debiasing_loss_function(x, x_recon, y, y_logit, z_mean, z_logsigma)
-        # loss, class_loss = debiasing_loss_function('''TODO arguments''') # TODO
+       
 
-    '''TODO: use the GradientTape.gradient method to compute the gradients.
+    ''' use the GradientTape.gradient method to compute the gradients.
        Hint: this is with respect to the trainable_variables of the dbvae.'''
     grads = tape.gradient(loss, dbvae.trainable_variables)
-    # grads = tape.gradient('''TODO''', '''TODO''') # TODO
+   
 
     # apply gradients to variables
     optimizer.apply_gradients(zip(grads, dbvae.trainable_variables))
@@ -199,9 +199,9 @@ for i in range(num_epochs):
     print("Starting epoch {}/{}".format(i + 1, num_epochs))
 
     # Recompute data sampling proabilities
-    '''TODO: recompute the sampling probabilities for debiasing'''
+    
     p_faces = get_training_sample_probabilities(all_faces, dbvae)
-    # p_faces = get_training_sample_probabilities('''TODO''', '''TODO''') # TODO
+   
 
     # get a batch of training data and compute the training step
     for j in tqdm(range(loader.get_train_size() // batch_size)):
