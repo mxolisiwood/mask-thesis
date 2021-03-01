@@ -19,9 +19,10 @@ def help_command(update, context):
 
 
 
+
 def load_model():
     global model
-    model = load_learner('2attempt.pkl')
+    model = load_learner('C:/Users/silab/Desktop/mask-thesis/2attempt.pkl')
     print('Model loaded')
 
 
@@ -53,3 +54,6 @@ def main():
 
     updater.start_polling()
     updater.idle()
+
+if __name__ == '__main__':
+    main()
