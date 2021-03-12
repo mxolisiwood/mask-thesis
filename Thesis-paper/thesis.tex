@@ -1,0 +1,26 @@
+\documentclass[
+% without options: one-sided printing, online version
+% twoside,       % two-sided printing
+]{thesis-ekf}
+\usepackage{mystyle}
+\usepackage{cite}
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=authoryear]{biblatex}
+\addbibresource{references.bib}
+\begin{document}
+\input{./tex/title}
+\maketitle
+
+\tableofcontents
+
+\input{./tex/introduction}
+\input{./tex/methods}
+\input{./tex/results}
+\input{./tex/discussion}
+\input{./tex/summary}
+
+\bibliographystyle{plain}
+\printbibliography
+\end{document}
