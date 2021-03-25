@@ -1,6 +1,6 @@
 \chapter{Methods}
 
-\section{State of art}
+\section{Literature Review}
 \subsection{Earlier Work}
 In recent years, researchers and analysts focused mainly on gray-scale face image. Others, focused and were built on pattern identification models, possessing information of the model while others used AdaBoost. \cite{ojala2002multiresolution} This was a superb classifier for the purpose of training. When Viola-Jones Detector came, which was a breakthrough in face detection technology and real-time face detection became a possibility. Problems faced by this was problems, but not limited to, such as orientation and the brightness which made it hard to intercept. Resulting in its failure to function in dull and dim light, hence, researchers started looking for an alternative model that could overcome this shortcomings.
 \subsection{Past Datasets}
@@ -20,28 +20,49 @@ G. Jignesh, Narinder Singh, Sanjay Kumar and Sonali Agarwal have noticed that is
 
 
 \section{Technology review}
-\subsection{Datasets}
-In the process of conducting this experiment, there are two types of datasets. 
-The set of fist image datasets are from kaggle.com. The datasets is made up of two classes, those that are with masks and the others that are without masks.
-That is a total of 1412 images belonging to 2 classes in training set and 290 images in testing set.
 
 
-    \centerline{\includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{tex/images/Screenshot_Masks.png}}
-     \caption{Screenshot from my Google Colab}
-    \label{fig}
+\subsection{Artificial Intelligence}
+Artificial Intelligence (A.I.) is a technique that enables computers the ability to mimic human intelligence. It includes Machine Learning. Artificial Intelligence is the capability of a device to perform cognitive functions as human beings do, inclusive of perceiving, learning, reasoning, and solving issues. The benchmark for AI is the human degree concerning in groups of reasoning, speech, and imaginative and prescient. 
 
-This is what the dataset looks like. We have pictures of people wearing masks and others not wearing masks.  This dataset provides a great variation of faces
-this making this dataset useful. To my knowledge this dataset is one of the largest datasets that was released on kaggle that has faces of masks and no masks and made available thanks to Prajna Bhandary.
-This dataset was a collection of random faces of people and with the aid of photoshop, some faces were then added masks to make them fit on the face. 
-The second set of images are my own collection, where I personally asked people that I know to send me pictures of themselves
-with masks, others without so that I can compile a dataset made up of real-world masked faces and capture the different mask colors and shades.
+\subsection{Machine Learning}
+Machine Learning (M.L.) is a subset of A.I.that includes techniques that enable machines to improve at tasks with experience. It includes Deep Learning.
+Some standard Machine Learning tasks:
+\begin{itemize}
+    \item Classification: A problem of assigning a category to each item.
+    \item Regression: A problem of predicting a real value for each item.
+    \item Ranking: A problem of ordering items according to some criterion.
+    \item Clustering: A problem of partitioning a set of items into a homogeneous subset.
+    \item Manifold learning: A problem of transformation to a lower-dimensional representation.
+\end{itemize}
+These are all paramount since Machine learning's main focus and practical objective consist of generating accurate predictions for items that are unseen and designing efficient algorithms to produce such.\vspace{5mm}.
+The Learning scenarios are as follows:
+\begin{itemize}
+    \item Supervised learning: Here, the learner receives a set of examples that are training data and then makes predictions for the rest of the unseen points. This scenario is mostly associated with classification, regression as well as ranking problems. 
+    \item Unsupervised learning: An exclusively unlabeled training data is received by the learner and then makes predictions for all unseen points. Clustering and dimensional reduction are examples of such problems.
+\end{itemize}
+There are other learning scenarios that are not included here simply because they are not of interest for the current system being designed here.
+\vspace{5mm}.
+M.L. can be broadly be defines as computational methods that use experience to improve performance or make accurate decisions and predictions. In Machine Learning, "experience" is used to refer to past information that was available to the learner, which takes the electronic data collected and made available to be analyzed. This data could basically be anything and be in any form of digitized human-labeled training sets, or other information obtained
+via interaction with the environment.Machine learning include designing efficient and accurate prediction algorithms. Similarly to other disciplines of computer science, some critical measures pertaining the quality of these algorithms are their time as well as space complexity. However, since machine learning's algorithms success is dependant on data used, Machine learning is is inherently related to data analysis and statistics.\vspace{5mm}.
+A common contention against utilizing machine learning for physical applications is that they work as a dark box: send in a few information and out comes a number \cite{zhang2020machine}.Whereas this kind of non parametric estimation can be amazingly valuable, a physicist frequently needs to get it what angle of the input data yields the separating control, in arrange to memorize / affirm the fundamental material science or to account for their systematics.Hence the current hype about Deep learning.
 
-    
+
+
+\subsection{Deep Learning}
+Deep Learning is also a subset of M.L. based on neural networks that permit a machine to train itself to perform a task. Deep learning permits computational models which are composed of a couple of processing layers to analyze representations of statistics with more than one ranges of abstraction.These strategies have significantly moved forward the state-of-the-art in discourse acknowledgment, visual question acknowledgment, question discovery, and numerous other spaces such as medicate revelation and genomics. Profound learning finds complex structure in huge information sets by utilizing the backpropagation calculation to show how a machine ought to alter its inside parameters that are utilized to compute the representation in each layer from the representation within the past layer.\cite{lecun2015deep}
+Below are some of the key trends of Deep learning:
+\begin{itemize}
+    \item Deep learning has an interesting history and has gained popularity.
+    \item It has become very useful as the amount of data available increases.
+    \item Its models have grown in size over time as computer hardware and software infrastructure continues to improve.
+    \item Deep learning has, and continues to solve complex applications with its increasing accuracy over time.
+\end{itemize}
 
 \subsection{Convolution Neural Network}
-In order to properly tackle Convolutional Neural Network, it is paramount to first understand Machine Learning.
+In order to properly tackle Convolutional Neural Network, it was paramount to first understand Artificial Intelligence, Machine Learning and Deep learning.
 The issue of how to create computers that automatically develop through experience is answered by machine learning. It is one of the fastest growing technical fields today, situated at the intersection between computer science and statistics.\cite{jordan2015machine}
-Convolutional Neural Networks have overtaken traditional image recognition methods in the early 2010's. 
+Convolutional Neural Networks have overtaken traditional image recognition methods in the early 2010's. \vspace{5mm}.
 Computer vision and image recognition are not the same and must be distinguished. Computer vision is when we allow a computer to imitate or have human-like vision. computer vision means that it can do something. 
 
 image recognition on the other hand is fascinated by pixels and patterns of an image and it recognise an image as it learns more about it.
@@ -84,8 +105,10 @@ apart from the standard training data: knowledge from one or more related tasks.
 
 \includegraphics[width=.6\textwidth,height=.7\textheight,keepaspectratio]{tex/images/Transfer.jpeg}
 \caption{Transfer Learning Model.}
+\vspace{5mm}.
 
-Thanks to this method, there is no need to re-train the entire model and as a result what is left is to work on the filan classification part.
+
+Thanks to this method, there is no need to re-train the entire model and as a result what is left is to work on the final classification part.
 The InceptionV3 model is an architecture of convolutional networks. It is considered as one of the most accurate models for image classification. It was originally created by the Google Brain team.\cite{hussain2018study}
 A transfer learning-based methodology is proposed in this paper that uses the
 Pre-trained model for InceptionV3 to identify people who do not wear
@@ -116,7 +139,8 @@ wherein situations, understanding need to now no longer be transferred
  It is a given fact that Deep Learning models has been exceedingly successful at learning data such as images, audio, and so on. However, it also has its limitations
  or challenges. Some of the challenges being biasedness when it comes to various things such as, but not limited to; skin color, gender, angle, etc. 
  Machine learning systems are increasingly making our day-to-day decisions that impact us daily as individual and also as a society. The development of an unbiased AI system
- like the one we have created is of paramount importance to limiting unintended side effects. \cite{amini2019uncovering} 
+ like the one we have created is of paramount importance to limiting unintended side effects. \cite{amini2019uncovering} \vspace{5mm}.
+ 
  Autoencoders are trained to reconstruct the input data. Taking images as an input data in our case.
  Autoencoders are divided into two components, Encoders and Decoders.
  \item Encoder: a number of layers that are fully connected convolutional. They take he input and compress it down to very small representation
@@ -136,13 +160,37 @@ To minimise the biasedness of our dataset, we train a VAE model to learn the lat
 
 \subsection{TensorFlow}
 A widely used Machine Learning (ML) task program is TensorFlow (TF). It is generally adopted, as it offers an interface to express the models' typical ML algorithms and executable code. Models generated in TensorFlow  can be transported with devices ranging from heterogeneous systems with little to no shift.
-From cell phones to servers that are distributed. TensorFlow  has been developed by and is maintained by Google and is used internally within the organization for the purposes of Machine Learning.
-In our system, Tensorflow is thus a preferred library that we used.
+From cell phones to servers that are distributed. 
+\vspace{5mm}.
 
+TensorFlow  has been developed by and is maintained by Google and is used internally within the organization for the purposes of Machine Learning.
+In our system, Tensorflow is thus a preferred library that we used.TensorFlow could be a machine learning framework that works at expansive scale and in heterogeneous situations. TensorFlow employments dataflow charts to speak to computation, shared state, and the operations that change that state. It maps the hubs of a dataflow chart over numerous machines in a cluster, and inside a machine over different computational gadgets, counting multicore CPUs, generalpurpose GPUs, and custom-designed ASICs known as Tensor Processing Units (TPUs).
+
+\begin{lstlisting}
+import tensorflow as tf
+
+b = tf.Variable(tf.zeros([100]))                        #100-d vector, init to zeros
+W = tf.Variable(tf.random_uniform([784,100],-1,1))      #784x100 matrix
+x = tf.placeholder(name="x")                            #Placeholder for input
+relu = tf.nn.relu(tf.matmul(W,x) + b)                   #Relu(Wx+b)
+C = [...]                                               #Cost computed as a function of Relu
+
+
+s = tf.Session()
+for step in xrange(0,10):
+    inout = ...construct 100-D input array ...
+    result = s.run(C, feed_dict={x: input})
+    print step, result
+\end{lstlisting}
+The above code is an example of a Tensorflow code fragement. \cite{abadi2016tensorflow}.
+The above code is to bring a general understanding of Tensorflow in a session. In our system, Tensorflow is used together with keras during the training of our model.
 
 \subsection{OpenCV}
-OpenCV is short for Open Source Computer vision. OpenCV is an open source image and video processing library that was originally introduced by Intel more than a decade ago.  \cite{culjak2012brief}
+OpenCV (Open Source Computer Vision) is short for Open Source Computer vision. OpenCV is an open source image and video processing library that was originally introduced by Intel more than a decade ago.  \cite{culjak2012brief}
+Computer vision is one of the paramount disciplines in programming a computer to gain visualisation and understanding of images as well as videos, in simple terms, it is allowing the computer to see.
+\vspace{5mm}.
 
+The goal of Intel team in 1999 when they launched OpenCV was to offer a library that would be useful in programming functions that is an optimal code available for free.OpenCV offers progressed video investigation on video sequences as well. Other than essential operations such as reading/viewing/writing video arrangements, extricating person outlines etc. a ordinary two errands are the closer view extraction and question following.It is basic to note in spite of the fact that that in arrange for OpenCV to open a indicated video record, the comparing codec must be introduced on the computer. Other than, there's a plausibility to examined specifically the video stream of a associated camera \cite{culjak2012brief}.
 The basic image processing and higher level computer vision algorithms are contained in the CV component.
 We have used an OpenCV for the detection of real-live movement on the web-cam to be able to detect the movement of the face as well as the mask. The use of this library is both easy to use and is relevant in this system. 
 
@@ -153,7 +201,4 @@ cv2.resize is then used to resize the image to speed up the detection. cv2.recta
 
 
 
-\section{References}
-
-\section{Equations}
 
